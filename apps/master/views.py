@@ -14,5 +14,11 @@ def tienda(request):
     }
     return render(request, 'tienda.html', context)
 
+def contacto(request):
+    context = {
+        'titulo' : 'Contacto'
+    }
+    return render(request, 'contacto.html', context)
+
 def admin(request):
     return render(request, 'admin.html')

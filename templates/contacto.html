@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}
+{{ titulo }}
+{% endblock %}
+
+{% block content %}
+<h1>Contáctanos</h1>
+
+<div class="container">
+        <div class="formulario p-3 mt-4 mb-5 fondoPurpura">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for=""><b class="text-light">Nombres</b></label>
+                        <input id="nombre" type="text" name="nombre" class="form-control" placeholder="Nombres">
+                    </div>
+                    <div class="form-group">
+                        <label for=""><b class="text-light">Apellidos</b></label>
+                        <input id="apellido" type="text" name="apellido" class="form-control" placeholder="Apellidos">
+                    </div>
+                    <div class="form-group">
+                        <label for=""><b class="text-light">Email</b></label>
+                        <input id="email" class="form-control" placeholder="Email" type="email">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for=""><b class="text-light">Teléfono</b></label>
+                        <input id="telefono" class="form-control" placeholder="Telefono" type="number">
+                    </div>
+                    <div class="form-group">
+                        <label for=""><b class="text-light">Región</b></label>
+                        <select class="form-control" id="region">
+                            <option value="">Seleccionar Región</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for=""><b class="text-light">Comuna</b></label>
+                        <select disabled class="form-control" id="comuna">
+                            <option value="">Seleccionar Comuna</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button id="boton" class="btn btn-light btn-block">Envíar Formulario</button>
+        </div>
+</div>
+{% endblock %}

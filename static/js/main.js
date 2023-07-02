@@ -44,7 +44,7 @@ function mostrarInicio() {
 }
 
 $(document).ready(function(){
-    $('.btn').click(function(){
+    $('.btnSidebar').click(function(){
         $('aside').toggleClass('movimiento');
     });
     // cargarIframe("inicio");
