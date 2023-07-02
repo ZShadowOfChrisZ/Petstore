@@ -33,25 +33,22 @@
         </div>
         <div class="bodySidebar bg-light">
             <ul class="text-center">
-                <li id="inicio" class="{% if titulo == 'Inicio' %}bordeActivo{% else %}{% endif %}"><a href="{% url 'inicio' %}" id="enlaceinicio" class="textoActivo">Inicio</a></li>
-                <li id="nosotros" class="{% if titulo == 'Nosotros' %}bordeActivo{% else %}{% endif %}"><a href="" id="enlacenosotros">Nosotros</a></li>
-                <li id="tienda" class="{% if titulo == 'Tienda' %}bordeActivo{% else %}{% endif %}"><a href="{% url 'tienda' %}" id="enlacetienda">Tienda</a></li>
-                <li id="organizaciones" class="{% if titulo == 'Organizaciones' %}bordeActivo{% else %}{% endif %}"><a href="" id="enlaceorganizaciones">Organizaciones</a></li>
-                <li id="contacto" class="{% if titulo == 'Contacto' %}bordeActivo{% else %}{% endif %}"><a href="{% url 'contacto' %}" id="enlacecontacto">Contacto</a></li>
+                <li id="inicio" class="{% if titulo == 'Inicio' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Inicio' %}textoActivo{% else %}{% endif %}" href="{% url 'inicio' %}">Inicio</a></li>
+                <li id="nosotros" class="{% if titulo == 'Nosotros' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Nosotros' %}textoActivo{% else %}{% endif %}" href="{% url 'nosotros' %}">Nosotros</a></li>
+                <li id="tienda" class="{% if titulo == 'Tienda' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Tienda' %}textoActivo{% else %}{% endif %}" href="{% url 'tienda' %}">Tienda</a></li>
+                <li id="organizaciones" class="{% if titulo == 'Organizaciones' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Organizaciones' %}textoActivo{% else %}{% endif %}" href="{% url 'organizaciones' %}">Organizaciones</a></li>
+                <li id="contacto" class="{% if titulo == 'Contacto' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Contacto' %}textoActivo{% else %}{% endif %}" href="{% url 'contacto' %}">Contacto</a></li>
+                <button class="btn btn-info">Administrar</button>
             </ul>
         </div>
     </aside>
     <main>
         <article>
             <section>
-                <div id="seccionDinamica" class="container pt-5">
-                    <div style="display: none;" id="loader"></div>
-                    <div class="container">
-                        {% block content %}
-                        {% endblock %}
-                    </div>
+                <div style="display: none;" id="loader"></div>
+                    {% block content %}
+                    {% endblock %}
                 </div>
-            </section>
         </article>
     </main>
     <footer class="fixed-bottom text-center bg-light p-3">

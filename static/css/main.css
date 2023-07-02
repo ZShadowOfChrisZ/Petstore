@@ -9,10 +9,6 @@
     font-family: 'Saira Condensed', sans-serif;
 }
 
-body {
-    height: 100vh;
-}
-
 aside {
     position: fixed;
     top: 76px;
@@ -20,12 +16,6 @@ aside {
     transition: all ease 0.2s;
     height: 90%;
     z-index: 999;
-}
-
-#seccionDinamica {
-    position: relative;
-    height: 150vh;
-    overflow: hidden;
 }
 
 .movimiento {
@@ -90,4 +80,32 @@ aside {
 
 .bordeActivo {
     border-left: 5px solid #9443d6;
+}
+.carousel .carousel-item {
+    height: 800px;
+}  
+.carousel-item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    min-height: 800px;
+    z-index: 999;
+}
+.textoCarrusel {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.476);
+}
+
+.altoimagen {
+    height: 200px;
+    }
+.puntero {
+    cursor: pointer;
 }

@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    $('#productoBandanas').hide();
+    $('#productoCorreas').hide();
+    // $('#productoCollares').show();
     $('#collares').click(function(){
         $('#productoBandanas').hide();
         $('#productoCorreas').hide();

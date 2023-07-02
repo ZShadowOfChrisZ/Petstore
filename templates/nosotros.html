@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block titulo %}
+{{ titulo }}
+{% endblock %}
+
+{% block content %}
+<div class="container pt-5 mt-5">
+    <div class="sobrenosotros mb-5">
+        <h1 class="text-center mt-5 mb-3">Sobre Nosotros</h1>
+        <hr>
+        <div class="row mt-5">
+            <div class="col-lg-6 mb-3">
+                <img class="w-100" src="{% static 'img/sobre.jpg' %}" alt="">
+            </div>
+            <div class="col-lg-6">
+                <p>
+                    Somos un equipo joven apasionado por los animales y comprometido con su bienestar. 
+                    Nos dedicamos a la venta de artículos para animales, ofreciendo una amplia gama de 
+                    productos de alta calidad para consentir a tus queridas mascotas.
+                </p>
+                <p>
+                    Pero no solo nos preocupamos por ofrecer los mejores productos, 
+                    también creemos en hacer una diferencia en la comunidad.
+                     Por eso, destinamos una parte de nuestras ganancias a realizar
+                    donaciones a organizaciones benéficas que se dedican a ayudar a 
+                    animales en situación de vulnerabilidad.
+                </p>
+                <p>
+                    Nuestro objetivo es brindar un servicio excepcional a nuestros clientes, 
+                    ofreciendo productos que cumplan con los más altos estándares de calidad 
+                    y contribuyendo a causas que marcan la diferencia en la vida de los animales 
+                    necesitados.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

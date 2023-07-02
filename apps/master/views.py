@@ -8,11 +8,23 @@ def inicio(request):
     }
     return render(request, 'index.html', context)
 
+def nosotros(request):
+    context = {
+        'titulo' : 'Nosotros'
+    }
+    return render(request, 'nosotros.html', context)
+
 def tienda(request):
     context = {
         'titulo' : 'Tienda'
     }
     return render(request, 'tienda.html', context)
+
+def organizaciones(request):
+    context = {
+        'titulo' : 'Organizaciones'
+    }
+    return render(request,'organizaciones.html', context)
 
 def contacto(request):
     context = {

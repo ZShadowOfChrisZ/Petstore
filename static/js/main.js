@@ -20,21 +20,6 @@ function activarItem(pagina) {
     
 };
 
-function cargarIframe(pagina) {
-    $('#loader').show();
-    contenedor.innerHTML = '';
-    var iframe = document.createElement("iframe");
-
-    iframe.src = `${pagina}.html`;
-    iframe.width = "100%";
-    iframe.height = "100%";
-    iframe.frameborder = "0";
-
-    contenedor.appendChild(iframe);
-    
-    $('#loader').hide();
-};
-
 function mostrarInicio() {
     paginas.map(i => {
         $(`#${i}`).removeClass('bordeActivo');
