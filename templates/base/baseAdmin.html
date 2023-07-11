@@ -15,7 +15,7 @@
     <!-- Slick -->
     <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick.css">
     <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css">
-    <title>{{ titulo }}</title>
+    <title>PetStore - {{ titulo }}</title>
 </head>
 <body>
     <nav class="navbar navbar-light bg-light fixed-top">
@@ -23,41 +23,21 @@
             <img src="{% static 'img/PetStoreLogo.png' %}" width="100%" height="50" alt="Logo de PetStore">
         </a>
     </nav>
-    <div class="container mt-5 pt-5">
-        <h1>Acceso Administrador</h1>
-        <hr>
-        <div class="row">
-            <div class="col-lg-6">
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    <div class="card">
-                        <div class="card-header">
-                            Acceso Administrador
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>Usuario</label>
-                                <input placeholder="Nombre Usuario" class="form-control" name="nombre" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label>Contraseña</label>
-                                <input placeholder="*********" class="form-control" name="password" type="password">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-block">Ingresar</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-6">
-                <div class="card">
-                    <img src="{% static 'img/PetStoreLogo.png' %}" alt="">
-                    <h2 class="text-center">Acceso Administrador</h2>
-                </div>
-            </div>
+    <aside>
+        <button class="btn fondoPurpura text-light absoluto btnSidebar" onclick="$(this).find('#iconoSidebar').toggleClass('fa-times fa-bars')"><i id="iconoSidebar" class="fas fa-times"></i></button>
+        <div class="text-center bg-light headerSidebar">
+            <img src="{% static 'img/PetStoreLogo.png' %}" width="90" height="45" alt="Logo de PetStore Sidebar">
         </div>
-    </div>
+        <div class="bodySidebar bg-light">
+            <ul class="text-center">
+                <li class="{% if titulo == 'Productos' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Productos' %}textoActivo{% else %}{% endif %}" href="{% url 'productos' %}">Productos</a></li>
+                <li class="{% if titulo == 'Contactos' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Contactos' %}textoActivo{% else %}{% endif %}" href="{% url 'contactos' %}">Contacto</a></li>
+                <a href="{% url 'admin' %}" class="btn fondoPurpura text-light">Cerrar Sesión</a>
+            </ul>
+        </div>
+    </aside>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
 <!-- Bootstrap JS -->

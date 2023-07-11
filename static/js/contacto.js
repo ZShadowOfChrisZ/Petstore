@@ -105,16 +105,18 @@ $("#boton").click(function(){
         $("#comuna").css("border","1px solid green");
         $("#region").css("border","1px solid green");
         
-        $("#nombre").val("");
-        $("#apellido").val("");
-        $("#email").val("");
-        $("#telefono").val("");
-        $("#comuna").val("");
-        $("#region").val("");
+
+        $('#formularioContacto').submit();
+        // $("#nombre").val("");
+        // $("#apellido").val("");
+        // $("#email").val("");
+        // $("#telefono").val("");
+        // $("#comuna").val("");
+        // $("#region").val("");
         
-        toastMixin.fire({
-            animation: true,
-            title: 'Formulario enviado'
-          }); 
+        // toastMixin.fire({
+        //     animation: true,
+        //     title: 'Formulario enviado'
+        //   }); 
     }
 });

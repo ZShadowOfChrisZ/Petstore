@@ -38,7 +38,7 @@
                 <li id="tienda" class="{% if titulo == 'Tienda' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Tienda' %}textoActivo{% else %}{% endif %}" href="{% url 'tienda' %}">Tienda</a></li>
                 <li id="organizaciones" class="{% if titulo == 'Organizaciones' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Organizaciones' %}textoActivo{% else %}{% endif %}" href="{% url 'organizaciones' %}">Organizaciones</a></li>
                 <li id="contacto" class="{% if titulo == 'Contacto' %}bordeActivo{% else %}{% endif %}"><a class="{% if titulo == 'Contacto' %}textoActivo{% else %}{% endif %}" href="{% url 'contacto' %}">Contacto</a></li>
-                <button class="btn btn-info">Administrar</button>
+                <a href="{% url 'admin' %}" class="btn btn-info">Administrar</a>
             </ul>
         </div>
     </aside>

@@ -1,0 +1,100 @@
+{% extends 'base/baseAdmin.html' %}
+{% load static %}
+{% block content %}
+<div class="container pt-5 mt-5">
+    <div class="text-right mb-5">
+        <button data-target="#modalAgregar" data-toggle="modal" class="btn fondoPurpura text-light"><i class="fas fa-plus"></i> Agregar Producto</button>
+    </div>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Imagen Producto</th>
+                <th>Nombre Producto</th>
+                <th>Precio Producto</th>
+                <th>Categoria Producto</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td><img width="35" height="35" src="{{ producto.imagenProducto.url }}" alt="Imagen Producto"></td>
+                <td>{{ producto.nombreProducto }}</td>
+                <td>{{ producto.precioProducto }}</td>
+                <td>{{ producto.categoriaProducto.nombreCategoria }}</td>
+                <td>
+                    <button data-toggle="modal" data-target="#modalEliminar{{ producto.id }}" class="btn fondoPurpura text-light"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal Agregar Producto -->
+<div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Agregar Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Nombre Producto</label>
+                        <input type="text" class="form-control" placeholder="Collar Azul Gato" name="nombreProducto">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Precio Producto</label>
+                        <input type="int" class="form-control" placeholder="$0" name="precioProducto">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Categoría Producto</label>
+                        <select name="categoriaProducto" class="form-control">
+                            {% for categoria in categorias %}
+                            <option value="{{ categoria.id }}">{{ categoria.nombreCategoria }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Imágen Producto</label>
+                        <input type="file" name="imagenProducto" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% for producto in productos %}
+<div class="modal fade" id="modalEliminar{{ producto.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form action="{% url 'eliminarProducto' idProducto=producto.id %}" method="POST">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Producto <i>{{ producto.nombreProducto }}</i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>¿Estás seguro que deseas eliminar este Producto?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Eliminar Producto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
